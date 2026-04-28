@@ -1,0 +1,45 @@
+<!--<suite name="DevIn Suite">-->
+<!--    <test name="Regression Tests">-->
+<!--        <classes>-->
+<!--            <class name="tests.LoginTest"/>-->
+<!--            <class name="tests.SignupTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--</suite>-->
+
+<!--Before parall elexecution-->
+<!--<suite name="DevIn Suite">
+<test name="Regression Tests">
+    <groups>
+        <run>
+            <exclude name="signup"/>
+            <include name="login"/>
+        </run>
+    </groups>
+    <classes>
+        <class name="tests.LoginTest"/>
+        <class name="tests.SignupTest"/>
+    </classes>
+</test>
+</suite>-->
+
+
+        <!--after parall elexecution for report-->
+<suite name="DevIn Suite" parallel="methods" thread-count="2">
+    <listeners>
+        <listener class-name="listeners.TestListener"/>
+    </listeners>
+<test name="Regression Tests">
+    <groups>
+        <run>
+            <exclude name="signup"/>
+            <include name="login"/>
+        </run>
+    </groups>
+    <classes>
+        <class name="tests.LoginTest"/>
+        <class name="tests.SignupTest"/>
+    </classes>
+</test>
+</suite>
+

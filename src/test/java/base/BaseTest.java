@@ -52,11 +52,11 @@ public void setup() {
 
     ChromeOptions options = new ChromeOptions();
 
-    if ("true".equals(System.getProperty("headless"))) {
-        options.addArguments("--headless=new");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--window-size=1920,1080");
-    }
+//    if ("true".equals(System.getProperty("headless"))) {
+//        options.addArguments("--headless=new");
+//        options.addArguments("--disable-gpu");
+//        options.addArguments("--window-size=1920,1080");
+//    }
 
     driver.set(new ChromeDriver(options));
 

@@ -174,3 +174,10 @@ bom1::27x8t-1777655570372-9ea4ebc928cf
 2026-05-02 17:42:26 INFO  tests.LoginTest - Entering credentials
 2026-05-02 17:42:28 INFO  tests.LoginTest - Waiting for user profile image
 2026-05-02 17:42:29 INFO  tests.LoginTest - Login status: true
+2026-05-02 17:47:31 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 17:47:32 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 17:47:32 INFO  tests.LoginTest - Entering credentials
+2026-05-02 17:47:33 INFO  tests.LoginAPITest - Status Code: 200
+2026-05-02 17:47:33 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 17:47:33 INFO  tests.LoginAPITest - API Login Test Passed
+2026-05-02 17:47:34 INFO  tests.LoginTest - Login status: true

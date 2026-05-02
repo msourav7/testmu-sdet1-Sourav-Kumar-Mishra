@@ -54,7 +54,7 @@
     <test name="UI Tests">
         <groups>
             <run>
-                <include name="signup"/>
+                <exclude name="signup"/>
                 <include name="login"/>
             </run>
         </groups>
@@ -69,7 +69,7 @@
     <test name="API Tests">
         <groups>
             <run>
-                <exclude name="api"/>
+                <include name="api"/>
             </run>
         </groups>
         <classes>

@@ -52,6 +52,15 @@ public void setup() {
 
     ChromeOptions options = new ChromeOptions();
 
+    // ✅ Detect headless from GitHub Actions
+    String headless = System.getProperty("headless");
+    if ("true".equalsIgnoreCase(headless)) {
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--window-size=1920,1080");
+    }
+
 //    if ("true".equals(System.getProperty("headless"))) {
 //        options.addArguments("--headless=new");
 //        options.addArguments("--disable-gpu");

@@ -67,7 +67,7 @@ public class LoginTest extends BaseTest {
 
         log.info("Waiting for user profile image");
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 
         boolean isLoggedIn = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(

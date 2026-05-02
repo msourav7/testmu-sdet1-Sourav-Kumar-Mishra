@@ -31,7 +31,7 @@ jobs:
         uses: browser-actions/setup-chrome@v1
 
       - name: Run Tests (Headless)
-        run: mvn clean test -Dheadless=true
+        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dheadless=true
 
       - name: Upload Extent Report
         uses: actions/upload-artifact@v4

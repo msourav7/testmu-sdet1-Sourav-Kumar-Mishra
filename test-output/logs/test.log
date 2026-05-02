@@ -1,0 +1,172 @@
+2026-05-01 22:29:17 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:29:17 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:29:28 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:29:28 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:29:40 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:29:40 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:29:49 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:29:51 INFO  tests.LoginTest - Login status: true
+2026-05-01 22:30:11 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:30:11 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:30:12 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:30:13 INFO  tests.LoginTest - Login status: true
+2026-05-01 22:36:01 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:36:01 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:36:06 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:36:07 INFO  tests.LoginTest - Login status: true
+2026-05-01 22:42:19 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 22:42:19 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:42:19 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:42:20 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:42:21 INFO  tests.LoginAPITest - Response: The page could not be found
+
+NOT_FOUND
+
+bom1::gdrw7-1777655540975-32f77b0479c6
+
+2026-05-01 22:42:21 INFO  tests.LoginTest - Login status: true
+2026-05-01 22:42:48 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 22:42:48 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:42:48 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:42:49 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:42:50 INFO  tests.LoginAPITest - Response: The page could not be found
+
+NOT_FOUND
+
+bom1::27x8t-1777655570372-9ea4ebc928cf
+
+2026-05-01 22:42:50 INFO  tests.LoginTest - Login status: true
+2026-05-01 22:50:52 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 22:50:54 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:50:54 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:50:55 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:50:56 INFO  tests.LoginTest - Login status: true
+2026-05-01 22:53:45 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 22:53:47 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 22:53:47 INFO  tests.LoginTest - Entering credentials
+2026-05-01 22:53:48 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 22:53:49 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:00:00 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:00:02 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:00:02 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:00:02 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:00:04 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:03:59 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:04:01 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:04:01 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:04:02 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:04:03 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:15:37 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:16:08 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:16:08 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:16:09 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:16:11 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:16:57 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:16:57 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:16:58 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:17:00 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:17:00 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:18:32 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:18:32 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:18:34 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:18:35 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:18:35 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:19:30 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:19:32 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:19:32 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:19:33 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:19:34 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:21:45 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:21:47 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:21:47 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:21:48 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:21:51 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:23:38 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-01 23:23:40 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:23:40 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:23:40 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:23:42 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:26:54 INFO  tests.LoginTest - Starting Login Test
+2026-05-01 23:26:54 INFO  tests.LoginTest - Entering credentials
+2026-05-01 23:26:54 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-01 23:26:56 INFO  tests.LoginTest - Login status: true
+2026-05-01 23:26:56 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 01:52:28 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 01:52:32 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 01:52:32 INFO  tests.LoginTest - Entering credentials
+2026-05-02 01:52:43 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 01:52:43 INFO  tests.LoginTest - Entering credentials
+2026-05-02 01:52:47 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 01:52:47 INFO  tests.LoginTest - Entering credentials
+2026-05-02 01:52:53 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 01:52:56 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 01:52:56 INFO  tests.LoginTest - Entering credentials
+2026-05-02 01:53:04 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 01:53:06 INFO  tests.LoginTest - Login status: true
+2026-05-02 01:54:02 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 01:54:04 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 01:54:04 INFO  tests.LoginTest - Entering credentials
+2026-05-02 01:54:06 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 01:54:07 INFO  tests.LoginTest - Login status: true
+2026-05-02 01:55:59 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 01:56:02 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 01:56:02 INFO  tests.LoginTest - Entering credentials
+2026-05-02 01:56:03 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 01:56:05 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:02:25 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:02:27 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:02:27 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:02:28 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:02:30 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:07:41 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:07:44 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:07:44 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:07:44 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:07:46 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:15:07 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:15:10 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:15:10 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:15:11 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:15:13 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:17:17 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:17:19 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:17:19 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:17:20 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:17:22 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:28:45 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:28:47 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:28:47 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:28:48 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:28:50 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:32:41 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:32:43 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:32:43 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:32:44 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:32:45 INFO  tests.LoginTest - Login status: true
+2026-05-02 02:34:53 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:34:55 INFO  tests.LoginAPITest - Status Code: 200
+2026-05-02 02:34:55 INFO  tests.LoginAPITest - API Login Test Passed
+2026-05-02 02:38:10 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 02:38:12 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 02:38:12 INFO  tests.LoginTest - Entering credentials
+2026-05-02 02:38:12 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 02:38:12 INFO  tests.LoginAPITest - Status Code: 200
+2026-05-02 02:38:12 INFO  tests.LoginAPITest - API Login Test Passed
+2026-05-02 02:38:14 INFO  tests.LoginTest - Login status: true
+2026-05-02 03:22:25 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 03:22:27 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 03:22:27 INFO  tests.LoginTest - Entering credentials
+2026-05-02 03:22:27 INFO  tests.LoginAPITest - Status Code: 400
+2026-05-02 03:22:27 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 03:22:39 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 03:22:39 INFO  tests.LoginTest - Entering credentials
+2026-05-02 03:22:39 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 03:22:51 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 03:22:51 INFO  tests.LoginTest - Entering credentials
+2026-05-02 03:22:51 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 03:33:35 INFO  tests.LoginAPITest - Starting API Login Test
+2026-05-02 03:33:37 INFO  tests.LoginAPITest - Status Code: 400
+2026-05-02 03:33:45 INFO  tests.LoginTest - Starting Login Test
+2026-05-02 03:33:45 INFO  tests.LoginTest - Entering credentials
+2026-05-02 03:33:46 INFO  tests.LoginTest - Waiting for user profile image
+2026-05-02 03:33:47 INFO  tests.LoginTest - Login status: true

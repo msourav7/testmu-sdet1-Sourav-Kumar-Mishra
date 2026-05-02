@@ -13,6 +13,7 @@ public class ScreenshotUtil {
 
         String path = "test-output/screenshots/" + testName + ".png";
         File dest = new File(path);
+        dest.getParentFile().mkdirs();  // ADD THIS LINE
 
         try {
             FileUtils.copyFile(src, dest);

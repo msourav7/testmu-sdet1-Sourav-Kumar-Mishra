@@ -25,21 +25,56 @@
 
 
         <!--after parall elexecution for report-->
-<suite name="DevIn Suite" parallel="methods" thread-count="2">
-    <listeners>
-        <listener class-name="listeners.TestListener"/>
-    </listeners>
-<test name="Regression Tests">
-    <groups>
-        <run>
-            <exclude name="signup"/>
-            <include name="login"/>
-        </run>
-    </groups>
-    <classes>
-        <class name="tests.LoginTest"/>
-        <class name="tests.SignupTest"/>
-    </classes>
-</test>
-</suite>
+<!--<suite name="DevIn Suite" parallel="methods" thread-count="2">-->
+<!--    <listeners>-->
+<!--        <listener class-name="listeners.TestListener"/>-->
+<!--    </listeners>-->
+<!--<test name="Regression Tests">-->
+<!--    <groups>-->
+<!--        <run>-->
+<!--            <exclude name="signup"/>-->
+<!--            <include name="login"/>-->
+<!--            <include name="api"/>-->
+<!--        </run>-->
+<!--    </groups>-->
+<!--    <classes>-->
+<!--        <class name="tests.LoginTest"/>-->
+<!--        <class name="tests.SignupTest"/>-->
+<!--        <class name="tests.LoginAPITest"/>-->
+<!--    </classes>-->
+<!--</test>-->
+<!--</suite>-->
 
+<suite name="DevIn Suite" parallel="tests" thread-count="2">
+       <listeners>
+           <listener class-name="listeners.TestListener"/>
+      </listeners>
+
+    <!--    1st thread alloted, UI (Login + Signup) → sequential-->
+    <test name="UI Tests">
+        <groups>
+            <run>
+                <include name="signup"/>
+                <include name="login"/>
+            </run>
+        </groups>
+        <classes>
+<!--            These do NOT run in parallel,They run sequentially inside the same thread-->
+            <class name="tests.SignupTest"/>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+
+<!--    2nd thread alloted , API → parallel with UI-->
+    <test name="API Tests">
+        <groups>
+            <run>
+                <include name="api"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginAPITest"/>
+        </classes>
+    </test>
+
+</suite>

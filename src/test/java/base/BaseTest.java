@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 //before ThreDLocal execution
 //public class BaseTest {
@@ -13,7 +14,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 //
 //    @BeforeMethod(alwaysRun = true)
 //    public void setup() {
-//        WebDriverManager.chromedriver().setup();
+//
 //        driver = new ChromeDriver();
 //        driver.manage().window().maximize();
 //
@@ -36,18 +37,39 @@ public class BaseTest {
         return driver.get();
     }
 
-    @BeforeMethod(alwaysRun = true)
-    public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver.set(new ChromeDriver());
+//    @BeforeMethod(alwaysRun = true)
+//    public void setup() {
+//        WebDriverManager.chromedriver().setup();
+//        driver.set(new ChromeDriver());
+//
+//        getDriver().manage().window().maximize();
+//        getDriver().get("https://dev-in-frontend.vercel.app/");
+//    }
+@BeforeMethod(alwaysRun = true)
+public void setup() {
 
-        getDriver().manage().window().maximize();
-        getDriver().get("https://dev-in-frontend.vercel.app/");
+    WebDriverManager.chromedriver().setup();
+
+    ChromeOptions options = new ChromeOptions();
+
+    if ("true".equals(System.getProperty("headless"))) {
+        options.addArguments("--headless=new");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
     }
+
+    driver.set(new ChromeDriver(options));
+
+    getDriver().manage().window().maximize();
+    getDriver().get("https://dev-in-frontend.vercel.app/");
+}
 
 //    @AfterMethod(alwaysRun = true)
 //    public void tearDown() {
 //        getDriver().quit();
 //        driver.remove();
 //    }
+//}
+
+
 }

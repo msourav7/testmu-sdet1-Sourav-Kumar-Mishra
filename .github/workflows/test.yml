@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-  workflow_dispatch:
+  workflow_dispatch:     #  enables manual trigger
 
 jobs:
   test:

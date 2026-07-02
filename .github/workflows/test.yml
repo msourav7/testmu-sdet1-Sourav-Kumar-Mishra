@@ -39,28 +39,36 @@ jobs:
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
-      # Create config.properties from GitHub Secret
+      # Create config.properties from GitHub Secrets
       - name: Create config.properties
         run: |
           mkdir -p src/main/resources
           echo "gemini.api.key=${{ secrets.GEMINI_API_KEY }}" > src/main/resources/config.properties
+          echo "gemini.model=${{ secrets.GEMINI_MODEL }}" >> src/main/resources/config.properties
 
       # Build Project
       - name: Build
         run: mvn clean compile
 
-      # Generate AI Test Cases
-      - name: Generate AI Test Cases
-        run: |
-          mvn -Dtest=GenerateLoginTests test
-          mvn -Dtest=GenerateDashboardTests test
-          mvn -Dtest=GenerateApiTests test
+      # Generate AI Login Test Cases
+      - name: Generate Login Test Cases
+        run: mvn -Dtest=GenerateLoginTests test
 
-      # Execute Dynamic Tests
-      - name: Run Dynamic Tests
-        run: |
-          mvn -Dtest=DynamicLoginTest test
-          mvn -Dtest=DynamicDashboardTest test
+      # Generate AI Dashboard Test Cases
+      - name: Generate Dashboard Test Cases
+        run: mvn -Dtest=GenerateDashboardTests test
+
+      # Generate AI API Test Cases
+      - name: Generate API Test Cases
+        run: mvn -Dtest=GenerateApiTests test
+
+      # Execute Dynamic Login Tests
+      - name: Run Dynamic Login Tests
+        run: mvn -Dtest=DynamicLoginTest test
+
+      # Execute Dynamic Dashboard Tests
+      - name: Run Dynamic Dashboard Tests
+        run: mvn -Dtest=DynamicDashboardTest test
 
       # Upload Extent Report
       - name: Upload Extent Report
@@ -78,7 +86,7 @@ jobs:
           name: AI-Reports
           path: reports/
 
-      # Upload Generated JSON
+      # Upload Generated Test Cases
       - name: Upload Generated Test Cases
         if: always()
         uses: actions/upload-artifact@v4

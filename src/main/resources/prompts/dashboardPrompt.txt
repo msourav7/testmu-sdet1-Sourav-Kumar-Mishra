@@ -1,0 +1,15 @@
+Generate regression test cases for Dashboard.
+
+Include
+
+Navigation
+
+Profile
+
+Notifications
+
+Cards
+
+Logout
+
+Return JSON only.

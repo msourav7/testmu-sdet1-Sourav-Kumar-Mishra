@@ -1,12 +1,18 @@
 package listeners;
 
+import ai.AIExecutionSummaryAgent;
+import ai.ExecutionSummaryAgent;
+import ai.FailureAnalysisAgent;
 import base.BaseTest;
 import com.aventstack.extentreports.*;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utils.ExtentManager;
-import utils.ScreenshotUtil;
+import utils.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class TestListener implements ITestListener {
 
@@ -27,18 +33,111 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
 
+        System.out.println("******** AI LISTENER EXECUTED ********");
+
         Object testClass = result.getInstance();
 
         WebDriver driver = ((BaseTest) testClass).getDriver();
 
-        String path = ScreenshotUtil.captureScreenshot(driver, result.getMethod().getMethodName());
+        // Capture Screenshot
+        String screenshotPath =
+                ScreenshotUtil.captureScreenshot(
+                        driver,
+                        result.getMethod().getMethodName()
+                );
 
-        test.get().fail(result.getThrowable())
-                .addScreenCaptureFromPath(path);
+        // AI Analysis
+        FailureAnalysisAgent agent =
+                new FailureAnalysisAgent();
+
+        String analysis =
+                agent.analyze(
+                        result.getMethod().getMethodName(),
+                        result.getThrowable()
+                );
+
+        // Save AI report using existing utility
+        String reportPath =
+                AIReportUtil.saveAnalysis(
+                        analysis,
+                        result.getMethod().getMethodName()
+                );
+
+        // Also save plain text report
+        try {
+
+            Path folder =
+                    Path.of("reports", "ai-analysis");
+
+            Files.createDirectories(folder);
+
+            Files.writeString(
+
+                    folder.resolve(
+                            result.getMethod().getMethodName() + ".txt"
+                    ),
+
+                    analysis
+
+            );
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+
+        }
+
+        // Extent Report
+        test.get().fail(result.getThrowable());
+
+        test.get().addScreenCaptureFromPath(screenshotPath);
+
+        test.get().info(
+                "<b>🤖 AI Failure Analysis</b><br><pre>"
+                        + analysis +
+                        "</pre>"
+        );
+
+        test.get().info(
+                "AI Report saved at : " + reportPath
+        );
     }
+//    @Override
+//    public void onTestFailure(ITestResult result) {
+//
+//        Object testClass = result.getInstance();
+//
+//        WebDriver driver = ((BaseTest) testClass).getDriver();
+//
+//        String path = ScreenshotUtil.captureScreenshot(driver, result.getMethod().getMethodName());
+//
+//        test.get().fail(result.getThrowable())
+//                .addScreenCaptureFromPath(path);
+//    }
 
     @Override
-    public void onFinish(org.testng.ITestContext context) {
+    public void onFinish(ITestContext context) {
+
+        // Flush Extent Report
         extent.flush();
+
+        // Generate AI Execution Summary
+        ExecutionSummaryAgent agent =
+                new ExecutionSummaryAgent();
+
+        String summary =
+                agent.generateSummary();
+
+        // Save Summary
+        AIReportUtil.saveAnalysis(
+                summary,
+                "ExecutionSummary"
+        );
+
+        // Print Summary in Console
+        System.out.println(summary);
+
+        // Clear execution logs for next run
+        ExecutionCollector.clear();
     }
 }

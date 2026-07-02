@@ -1,0 +1,8 @@
+# Application URL
+baseUrl=https://netflix-gpt-tan-ten.vercel.app/
+
+# Browser
+browser=chrome
+
+# Gemini API Key
+gemini.api.key=YOUR_GEMINI_API_KEY_HERE

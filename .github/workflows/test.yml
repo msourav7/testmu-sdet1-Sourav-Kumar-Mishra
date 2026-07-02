@@ -1,40 +1,87 @@
-name: Selenium Tests
+name: AI Selenium Automation
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
+      - main
+
   pull_request:
-  workflow_dispatch:     #  enables manual trigger
+
+  workflow_dispatch:
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout repository
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Java
+      # Setup Java
+      - name: Setup Java 17
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          distribution: temurin
+          java-version: 17
 
-      # 🔥 ADD HERE (after Java setup)
-      - name: Cache Maven dependencies
+      # Cache Maven dependencies
+      - name: Cache Maven
         uses: actions/cache@v4
         with:
           path: ~/.m2
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
 
+      # Setup Chrome
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: Run Tests (Headless)
-        run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Dheadless=true
+      # Create config.properties from GitHub Secret
+      - name: Create config.properties
+        run: |
+          mkdir -p src/main/resources
+          echo "gemini.api.key=${{ secrets.GEMINI_API_KEY }}" > src/main/resources/config.properties
 
+      # Build Project
+      - name: Build
+        run: mvn clean compile
+
+      # Generate AI Test Cases
+      - name: Generate AI Test Cases
+        run: |
+          mvn -Dtest=GenerateLoginTests test
+          mvn -Dtest=GenerateDashboardTests test
+          mvn -Dtest=GenerateApiTests test
+
+      # Execute Dynamic Tests
+      - name: Run Dynamic Tests
+        run: |
+          mvn -Dtest=DynamicLoginTest test
+          mvn -Dtest=DynamicDashboardTest test
+
+      # Upload Extent Report
       - name: Upload Extent Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: extent-report
+          name: ExtentReport
           path: test-output/
+
+      # Upload AI Reports
+      - name: Upload AI Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI-Reports
+          path: reports/
+
+      # Upload Generated JSON
+      - name: Upload Generated Test Cases
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Generated-TestCases
+          path: generated/

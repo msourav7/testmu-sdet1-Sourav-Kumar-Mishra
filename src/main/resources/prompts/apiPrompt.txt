@@ -1,0 +1,9 @@
+Generate REST API regression test cases.
+
+POST /login
+
+GET /user
+
+DELETE /user
+
+Output JSON only.

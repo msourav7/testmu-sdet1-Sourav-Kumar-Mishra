@@ -1,5 +1,6 @@
 package base;
 
+import listeners.TestListener;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
@@ -27,6 +28,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 //    }
 //}
 
+@Listeners(TestListener.class) // if induvidual test runs and that test is not present in testng then to include to that test run testlistner we write it here
 
 //after thread local execution for report
 public class BaseTest {
@@ -52,7 +54,7 @@ public void setup() {
 
     ChromeOptions options = new ChromeOptions();
 
-    // ✅ Detect headless from GitHub Actions
+    // detect headless from gitHub actions
     String headless = System.getProperty("headless");
     if ("true".equalsIgnoreCase(headless)) {
         options.addArguments("--headless=new");

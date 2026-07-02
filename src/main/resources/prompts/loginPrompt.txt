@@ -1,0 +1,13 @@
+Generate exactly THREE login test cases.
+
+Return ONLY JSON.
+
+[
+{
+"id":"",
+"title":"",
+"priority":"",
+"steps":[],
+"expectedResult":""
+}
+]

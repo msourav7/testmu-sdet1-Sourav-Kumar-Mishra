@@ -35,18 +35,28 @@ public class TestListener implements ITestListener {
 
         System.out.println("******** AI LISTENER EXECUTED ********");
 
+        // Get current test class
         Object testClass = result.getInstance();
 
-        WebDriver driver = ((BaseTest) testClass).getDriver();
+        WebDriver driver = null;
 
-        // Capture Screenshot
-        String screenshotPath =
-                ScreenshotUtil.captureScreenshot(
-                        driver,
-                        result.getMethod().getMethodName()
-                );
+        if (testClass instanceof BaseTest) {
+            driver = ((BaseTest) testClass).getDriver();
+        }
 
-        // AI Analysis
+        // Capture screenshot only if driver exists
+        String screenshotPath = null;
+
+        if (driver != null) {
+
+            screenshotPath =
+                    ScreenshotUtil.captureScreenshot(
+                            driver,
+                            result.getMethod().getMethodName()
+                    );
+        }
+
+        // AI Failure Analysis
         FailureAnalysisAgent agent =
                 new FailureAnalysisAgent();
 
@@ -56,14 +66,14 @@ public class TestListener implements ITestListener {
                         result.getThrowable()
                 );
 
-        // Save AI report using existing utility
+        // Save AI Report
         String reportPath =
                 AIReportUtil.saveAnalysis(
                         analysis,
                         result.getMethod().getMethodName()
                 );
 
-        // Also save plain text report
+        // Save plain text report
         try {
 
             Path folder =
@@ -90,12 +100,17 @@ public class TestListener implements ITestListener {
         // Extent Report
         test.get().fail(result.getThrowable());
 
-        test.get().addScreenCaptureFromPath(screenshotPath);
+        // Attach screenshot only if available
+        if (screenshotPath != null) {
+
+            test.get().addScreenCaptureFromPath(screenshotPath);
+
+        }
 
         test.get().info(
                 "<b>🤖 AI Failure Analysis</b><br><pre>"
-                        + analysis +
-                        "</pre>"
+                        + analysis
+                        + "</pre>"
         );
 
         test.get().info(

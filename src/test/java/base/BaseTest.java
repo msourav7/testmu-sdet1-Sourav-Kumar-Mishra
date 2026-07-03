@@ -75,6 +75,15 @@ public void setup() {
     getDriver().get("https://dev-in-frontend.vercel.app/");
 }
 
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+
+        if (getDriver() != null) {
+            getDriver().quit();
+            driver.remove();
+        }
+    }
+
 //    @AfterMethod(alwaysRun = true)
 //    public void tearDown() {
 //        getDriver().quit();

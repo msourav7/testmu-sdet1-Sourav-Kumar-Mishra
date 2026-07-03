@@ -28,7 +28,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 //    }
 //}
 
-//@Listeners(TestListener.class) // if induvidual test runs and that test is not present in testng then to include to that test run testlistner we write it here
+@Listeners(TestListener.class) // if induvidual test runs and that test is not present in testng then to include to that test run testlistner we write it here
 
 //after thread local execution for report
 public class BaseTest {

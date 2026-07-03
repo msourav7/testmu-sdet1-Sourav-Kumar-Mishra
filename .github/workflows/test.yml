@@ -52,15 +52,15 @@ jobs:
 
       # Generate AI Login Test Cases
       - name: Generate Login Test Cases
-        run: mvn -Dtest=GenerateLoginTests test
+        run: mvn -Dtest=AITestGeneration test
 
       # Generate AI Dashboard Test Cases
       - name: Generate Dashboard Test Cases
-        run: mvn -Dtest=GenerateDashboardTests test
+        run: mvn -Dtest=AIDashboardGeneration test
 
       # Generate AI API Test Cases
       - name: Generate API Test Cases
-        run: mvn -Dtest=GenerateApiTests test
+        run: mvn -Dtest=AIAPITestGeneration test
 
       # Execute Dynamic Login Tests
       - name: Run Dynamic Login Tests
@@ -92,4 +92,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Generated-TestCases
-          path: generated/
+          path: src/main/resources/generated/

@@ -33,89 +33,81 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
 
-        System.out.println("******** AI LISTENER EXECUTED ********");
-
-        // Get current test class
-        Object testClass = result.getInstance();
-
-        WebDriver driver = null;
-
-        if (testClass instanceof BaseTest) {
-            driver = ((BaseTest) testClass).getDriver();
-        }
-
-        // Capture screenshot only if driver exists
-        String screenshotPath = null;
-
-        if (driver != null) {
-
-            screenshotPath =
-                    ScreenshotUtil.captureScreenshot(
-                            driver,
-                            result.getMethod().getMethodName()
-                    );
-        }
-
-        // AI Failure Analysis
-        FailureAnalysisAgent agent =
-                new FailureAnalysisAgent();
-
-        String analysis =
-                agent.analyze(
-                        result.getMethod().getMethodName(),
-                        result.getThrowable()
-                );
-
-        // Save AI Report
-        String reportPath =
-                AIReportUtil.saveAnalysis(
-                        analysis,
-                        result.getMethod().getMethodName()
-                );
-
-        // Save plain text report
         try {
 
-            Path folder =
-                    Path.of("reports", "ai-analysis");
+            System.out.println("******** AI LISTENER EXECUTED ********");
 
-            Files.createDirectories(folder);
+            Object testClass = result.getInstance();
 
-            Files.writeString(
+            WebDriver driver = null;
 
-                    folder.resolve(
-                            result.getMethod().getMethodName() + ".txt"
-                    ),
+            if (testClass instanceof BaseTest) {
+                driver = ((BaseTest) testClass).getDriver();
+            }
 
-                    analysis
+            String screenshotPath = null;
 
+            if (driver != null) {
+                screenshotPath = ScreenshotUtil.captureScreenshot(
+                        driver,
+                        result.getMethod().getMethodName()
+                );
+            }
+
+            FailureAnalysisAgent agent = new FailureAnalysisAgent();
+
+            String analysis = agent.analyze(
+                    result.getMethod().getMethodName(),
+                    result.getThrowable()
             );
 
-        } catch (IOException e) {
+            String reportPath = AIReportUtil.saveAnalysis(
+                    analysis,
+                    result.getMethod().getMethodName()
+            );
 
+            try {
+
+                Path folder = Path.of("reports", "ai-analysis");
+
+                Files.createDirectories(folder);
+
+                Files.writeString(
+                        folder.resolve(result.getMethod().getMethodName() + ".txt"),
+                        analysis
+                );
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ExtentTest extentTest = test.get();
+
+            if (extentTest != null) {
+
+                extentTest.fail(result.getThrowable());
+
+                if (screenshotPath != null) {
+                    extentTest.addScreenCaptureFromPath(screenshotPath);
+                }
+
+                extentTest.info(
+                        "<b>🤖 AI Failure Analysis</b><br><pre>"
+                                + analysis
+                                + "</pre>"
+                );
+
+                extentTest.info(
+                        "AI Report saved at : " + reportPath
+                );
+            }
+
+        } catch (Exception e) {
+
+            System.out.println("Listener Error: " + e.getMessage());
             e.printStackTrace();
 
         }
-
-        // Extent Report
-        test.get().fail(result.getThrowable());
-
-        // Attach screenshot only if available
-        if (screenshotPath != null) {
-
-            test.get().addScreenCaptureFromPath(screenshotPath);
-
-        }
-
-        test.get().info(
-                "<b>🤖 AI Failure Analysis</b><br><pre>"
-                        + analysis
-                        + "</pre>"
-        );
-
-        test.get().info(
-                "AI Report saved at : " + reportPath
-        );
     }
 //    @Override
 //    public void onTestFailure(ITestResult result) {
